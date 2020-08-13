@@ -15,7 +15,9 @@ const Cart = (props) => {
     );
   });
 
-  return <div>{product}</div>;
+  return (
+    <div className="py-6 text-gray-900 grid md:grid-cols-2 ">{product}</div>
+  );
 };
 
 export default Cart;

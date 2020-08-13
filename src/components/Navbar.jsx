@@ -19,7 +19,11 @@ const Navbar = (props) => {
         </a>
         <ul>
           <li>
-            <button className="text-2xl">
+            <button
+              disabled={props.productCount <= 0}
+              className="text-2xl cart_btn"
+              onClick={props.onHandleCart}
+            >
               <FiShoppingCart className="text-blue-700" />
             </button>
             <span className="text-pink-600 text-xl mt-2 mx-1 font-extrabold">

@@ -14509,6 +14509,45 @@ body {
   text-transform: uppercase;
 }
 
+.modal {
+  position: fixed;
+  z-index: 50;
+  --bg-opacity: 1;
+  background-color: #f7fafc;
+  background-color: rgba(247, 250, 252, var(--bg-opacity));
+  width: 75%;
+  border-width: 1px;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  padding: 0.5rem;
+  top: 0;
+  bottom: 0;
+  overflow-y: scroll;
+}
+
+.modal_position {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 600px;
+}
+
+.modal_close_btn {
+  margin-left: auto;
+  --bg-opacity: 1;
+  background-color: #f56565;
+  background-color: rgba(245, 101, 101, var(--bg-opacity));
+  padding: 0.5rem;
+  border-radius: 9999px;
+  --text-opacity: 1;
+  color: #fff5f5;
+  color: rgba(255, 245, 245, var(--text-opacity));
+}
+
+.cart_btn:disabled {
+  cursor: not-allowed;
+  pointer-events: all !important;
+}
+
 @media (min-width: 640px){
   .sm\:container{
     width: 100%;

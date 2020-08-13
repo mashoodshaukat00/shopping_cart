@@ -3,6 +3,7 @@ import Navbar from "./components/Navbar";
 import Products from "./containers/Products";
 import Cart from "./containers/Cart";
 import { getProduct } from "./data/productData";
+import Modal from "./components/Modal";
 
 class App extends Component {
   constructor(props) {
@@ -10,8 +11,10 @@ class App extends Component {
     this.state = {
       products: [],
       productOnCart: [],
+      cartOpen: false,
     };
     this.handleAddToCart = this.handleAddToCart.bind(this);
+    this.handleCart = this.handleCart.bind(this);
   }
 
   componentDidMount() {
@@ -21,7 +24,7 @@ class App extends Component {
 
   handleAddToCart(product_id) {
     const getProduct = this.state.products.filter((p) => p.id === product_id);
-    getProduct[0].isAddedToCart = true;
+    getProduct[0].isAddedToCart = false;
     const updateProductToCart = [...this.state.productOnCart, ...getProduct];
 
     // work on changing isAddedToCart to true
@@ -33,19 +36,28 @@ class App extends Component {
     this.setState({ productOnCart: updateProductToCart, products });
   }
 
+  handleCart() {
+    this.setState({
+      cartOpen: !this.state.cartOpen,
+    });
+  }
+
   render() {
     return (
       <>
-        <Navbar productCount={this.state.productOnCart.length} />
-        <main className="px-4">
-          <h1 className="capitalize text-center text-2xl mt-2 text-pink-700 tracking-widest underline ">
-            Buy Fresh Fruits
-          </h1>
+        <Navbar
+          productCount={this.state.productOnCart.length}
+          onHandleCart={this.handleCart}
+        />
+        <main className="px-4 ">
           <Products
+            isCartOpen={this.state.cartOpen}
             products={this.state.products}
             onHandleAddToCart={this.handleAddToCart}
           />
-          <Cart cartProducts={this.state.productOnCart} />
+          <Modal show={this.state.cartOpen} onHandleClose={this.handleCart}>
+            <Cart cartProducts={this.state.productOnCart} />
+          </Modal>
         </main>
       </>
     );
@@ -53,3 +65,7 @@ class App extends Component {
 }
 
 export default App;
+
+// <h1 className="capitalize text-center text-2xl mt-2 text-pink-700 tracking-widest underline ">
+// Buy Fresh Fruits
+// </h1>

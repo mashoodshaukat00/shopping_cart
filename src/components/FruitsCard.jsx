@@ -6,7 +6,7 @@ const FruitsCard = (props) => {
   const { id, imgSrc, name, quotes, price, onHandleAddToCart } = props;
 
   return (
-    <div className="card">
+    <div className="card w-full h-400">
       <img className="w-200 h-200" src={imgSrc} alt={name} />
       <div className="badge ">
         <span className="mr-1">
