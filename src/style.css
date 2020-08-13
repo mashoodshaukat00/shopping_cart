@@ -1,0 +1,25 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: "Open Sans", sans-serif;
+}
+
+.card {
+  @apply flex flex-col mt-4 bg-gray-200 shadow relative;
+}
+
+.badge {
+  @apply bg-pink-200 text-xl inline-block p-1 pr-3 absolute top-0  mt-2 flex justify-start items-center rounded-r text-pink-800;
+}
+
+.add_cart_btn {
+  @apply flex justify-center items-center  text-pink-600 shadow-outline  mt-auto p-2 rounded;
+}
+
+.fruit_name {
+  @apply text-xl inline-block bg-pink-800 text-pink-200 px-3 tracking-wide mb-3 uppercase;
+}
