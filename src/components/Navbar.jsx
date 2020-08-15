@@ -9,9 +9,9 @@ const Navbar = (props) => {
         <a
           href="/"
           rel="noopener noreferrer"
-          className="text-xl uppercase tracking-widest shadow-outline p-2 rounded"
+          className="text-xl uppercase tracking-widest shadow-outline p-1 rounded-lg"
         >
-          <span className="bg-pink-600 text-pink-100 p-1 rounded mr-1">
+          <span className="bg-pink-600 text-pink-100 px-2  rounded mr-1">
             Fruits
           </span>
           👉
@@ -21,14 +21,14 @@ const Navbar = (props) => {
           <li>
             <button
               disabled={props.productCount <= 0}
-              className="text-2xl cart_btn"
+              className="text-2xl cart_btn inline-block flex  items-center focus:outline-none focus:shadow-outline p-1 rounded-lg"
               onClick={props.onHandleCart}
             >
               <FiShoppingCart className="text-blue-700" />
+              <span className="text-pink-600 text-xl mt-2 mx-1 font-extrabold inline-block">
+                {props.productCount}
+              </span>
             </button>
-            <span className="text-pink-600 text-xl mt-2 mx-1 font-extrabold">
-              {props.productCount}
-            </span>
           </li>
         </ul>
       </div>

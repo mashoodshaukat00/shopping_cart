@@ -14,7 +14,7 @@ const productData = [
     imgSrc: apple,
     name: "apple",
     description: "keep clam and eat an apple",
-    price: "$5",
+    price: 5,
     isAddedToCart: false,
   },
   {
@@ -22,7 +22,7 @@ const productData = [
     imgSrc: avocado,
     name: "avocado",
     description: "let`s avo party",
-    price: "$25",
+    price: 25,
     isAddedToCart: false,
   },
   {
@@ -30,7 +30,7 @@ const productData = [
     imgSrc: banana,
     name: "banana",
     description: "goals are like bananas, they come in bunches",
-    price: "$4",
+    price: 4,
     isAddedToCart: false,
   },
   {
@@ -38,7 +38,7 @@ const productData = [
     imgSrc: coconut,
     name: "coconut",
     description: "all you need is love and coconuts",
-    price: "$10",
+    price: 10,
     isAddedToCart: false,
   },
   {
@@ -46,7 +46,7 @@ const productData = [
     imgSrc: grapes,
     name: "grapes",
     description: "a hangover is the wrath of grapes",
-    price: "$30",
+    price: 30,
     isAddedToCart: false,
   },
   {
@@ -55,7 +55,7 @@ const productData = [
     name: "orange",
     description:
       "breakfast without orange juice is like a day without sunshine",
-    price: "$8",
+    price: 8,
     isAddedToCart: false,
   },
   {
@@ -63,7 +63,7 @@ const productData = [
     imgSrc: pineapple,
     name: "pineapple",
     description: "when life gives you lemons, sell them and buy a pineapple",
-    price: "$15",
+    price: 15,
     isAddedToCart: false,
   },
   {
@@ -71,7 +71,7 @@ const productData = [
     imgSrc: strawberry,
     name: "strawberry",
     description: "strawberries are what make life taste wonderful",
-    price: "$8",
+    price: 8,
     isAddedToCart: false,
   },
 ];

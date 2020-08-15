@@ -11,6 +11,7 @@ const Products = (props) => {
         name={product.name}
         quotes={product.description}
         price={product.price}
+        isAddedToCart={product.isAddedToCart}
         onHandleAddToCart={props.onHandleAddToCart}
       />
     );

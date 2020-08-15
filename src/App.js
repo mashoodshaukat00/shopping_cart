@@ -12,9 +12,11 @@ class App extends Component {
       products: [],
       productOnCart: [],
       cartOpen: false,
+      totalPrice: 0,
     };
     this.handleAddToCart = this.handleAddToCart.bind(this);
     this.handleCart = this.handleCart.bind(this);
+    this.handleRemoveFromCart = this.handleRemoveFromCart.bind(this);
   }
 
   componentDidMount() {
@@ -33,7 +35,13 @@ class App extends Component {
 
     products[index].isAddedToCart = true;
 
-    this.setState({ productOnCart: updateProductToCart, products });
+    // calculate total price
+
+    let totalPrice = this.state.totalPrice;
+    totalPrice += getProduct[0].price;
+    this.setState({ totalPrice });
+
+    this.setState({ productOnCart: updateProductToCart, products, totalPrice });
   }
 
   handleCart() {
@@ -41,22 +49,50 @@ class App extends Component {
       cartOpen: !this.state.cartOpen,
     });
   }
+  // handler for remove product from cart
+  handleRemoveFromCart(product_id) {
+    const productOnCart = [...this.state.productOnCart];
+    const index = productOnCart.findIndex((p) => p.id === product_id);
+    productOnCart[index].isAddedToCart = false;
+    const updateProduct = productOnCart.filter((p) => p.id !== product_id);
+
+    const getPrice = productOnCart[index].price;
+    const currentTotalPrice = this.state.totalPrice;
+    let updateTotalPrice = currentTotalPrice - getPrice;
+
+    this.setState({
+      productOnCart: updateProduct,
+      totalPrice: updateTotalPrice,
+    });
+  }
 
   render() {
+    const { cartOpen, products, productOnCart, totalPrice } = this.state;
+    const { length: count } = this.state.productOnCart;
     return (
       <>
-        <Navbar
-          productCount={this.state.productOnCart.length}
-          onHandleCart={this.handleCart}
-        />
+        <Navbar productCount={count} onHandleCart={this.handleCart} />
+        <header>
+          <h1 className="capitalize text-center text-2xl mt-2 text-pink-700 tracking-widest underline ">
+            Buy Fresh Fruits
+          </h1>
+        </header>
         <main className="px-4 ">
           <Products
-            isCartOpen={this.state.cartOpen}
-            products={this.state.products}
+            isCartOpen={cartOpen}
+            products={products}
             onHandleAddToCart={this.handleAddToCart}
           />
-          <Modal show={this.state.cartOpen} onHandleClose={this.handleCart}>
-            <Cart cartProducts={this.state.productOnCart} />
+          <Modal
+            show={cartOpen}
+            onHandleClose={this.handleCart}
+            productCount={count}
+            price={totalPrice}
+          >
+            <Cart
+              cartProducts={productOnCart}
+              onRemoveProduct={this.handleRemoveFromCart}
+            />
           </Modal>
         </main>
       </>
@@ -65,7 +101,3 @@ class App extends Component {
 }
 
 export default App;
-
-// <h1 className="capitalize text-center text-2xl mt-2 text-pink-700 tracking-widest underline ">
-// Buy Fresh Fruits
-// </h1>

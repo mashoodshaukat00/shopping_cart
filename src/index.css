@@ -14453,8 +14453,8 @@ body {
   flex-direction: column;
   margin-top: 1rem;
   --bg-opacity: 1;
-  background-color: #edf2f7;
-  background-color: rgba(237, 242, 247, var(--bg-opacity));
+  background-color: #f7fafc;
+  background-color: rgba(247, 250, 252, var(--bg-opacity));
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
   position: relative;
 }
@@ -14480,17 +14480,20 @@ body {
   color: rgba(151, 38, 109, var(--text-opacity));
 }
 
-.add_cart_btn {
+.btn_add_to_cart {
   display: flex;
-  justify-content: center;
   align-items: center;
-  --text-opacity: 1;
-  color: #d53f8c;
-  color: rgba(213, 63, 140, var(--text-opacity));
-  box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.5);
+  justify-content: center;
   margin-top: auto;
   padding: 0.5rem;
-  border-radius: 0.25rem;
+  text-align: center;
+  font-weight: 700;
+  letter-spacing: 0.025em;
+}
+
+.btn_add_to_cart:disabled {
+  cursor: not-allowed;
+  pointer-events: all !important;
 }
 
 .fruit_name {
@@ -14518,7 +14521,6 @@ body {
   width: 75%;
   border-width: 1px;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-  padding: 0.5rem;
   top: 0;
   bottom: 0;
   overflow-y: scroll;
@@ -14531,19 +14533,64 @@ body {
   height: 600px;
 }
 
-.modal_close_btn {
+.btn_modal_close {
   margin-left: auto;
-  --bg-opacity: 1;
-  background-color: #f56565;
-  background-color: rgba(245, 101, 101, var(--bg-opacity));
-  padding: 0.5rem;
-  border-radius: 9999px;
+  font-size: 1.5rem;
   --text-opacity: 1;
-  color: #fff5f5;
-  color: rgba(255, 245, 245, var(--text-opacity));
+  color: #f56565;
+  color: rgba(245, 101, 101, var(--text-opacity));
+  padding: 0.5rem;
+  border-width: 2px;
+  --border-opacity: 1;
+  border-color: #cbd5e0;
+  border-color: rgba(203, 213, 224, var(--border-opacity));
+  border-top-left-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
 }
 
 .cart_btn:disabled {
+  cursor: not-allowed;
+  pointer-events: all !important;
+}
+
+.btn_delete {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  --bg-opacity: 1;
+  background-color: #e53e3e;
+  background-color: rgba(229, 62, 62, var(--bg-opacity));
+  padding: 0.5rem;
+  text-align: center;
+  --text-opacity: 1;
+  color: #fff5f5;
+  color: rgba(255, 245, 245, var(--text-opacity));
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  border-radius: 0.25rem;
+  font-weight: 700;
+}
+
+.btn_checkout {
+  --bg-opacity: 1;
+  background-color: #44337a;
+  background-color: rgba(68, 51, 122, var(--bg-opacity));
+  --text-opacity: 1;
+  color: #e9d8fd;
+  color: rgba(233, 216, 253, var(--text-opacity));
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  border-radius: 0.5rem;
+  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform;
+  transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  transition-duration: 500ms;
+}
+
+.btn_checkout:disabled {
   cursor: not-allowed;
   pointer-events: all !important;
 }

@@ -11,6 +11,7 @@ const Cart = (props) => {
         name={product.name}
         quotes={product.description}
         price={product.price}
+        onRemove={props.onRemoveProduct}
       />
     );
   });
