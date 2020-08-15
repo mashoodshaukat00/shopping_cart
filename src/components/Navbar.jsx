@@ -7,7 +7,7 @@ const Navbar = (props) => {
     <nav className="bg-white border-b p-3">
       <div className="container flex justify-between items-center m-auto">
         <a
-          href="/"
+          href="/shopping_cart"
           rel="noopener noreferrer"
           className="text-xl uppercase tracking-widest shadow-outline p-1 rounded-lg"
         >
