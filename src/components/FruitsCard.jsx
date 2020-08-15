@@ -26,7 +26,7 @@ const FruitsCard = (props) => {
         <h3 className="fruit_name" style={{ marginLeft: -15 }}>
           {name}
         </h3>
-        <p className="capitalize mb-3">{quotes}</p>
+        <p className="capitalize mb-3 text-gray-600">{quotes}</p>
       </div>
       <button
         disabled={isAddedToCart}
